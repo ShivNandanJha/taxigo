@@ -7,7 +7,7 @@ import { SourceCordiContext } from "@/context/SourceCordiContext";
 import { DestinationCordiContext } from "@/context/DestinationCordiContext";
 import MapBoxRoute from "./MapBoxRoute";
 import { DirectionDataContext } from "@/context/DirectionDataContext";
-import DistanceTime from "../Booking/DistanceTime";
+import DistanceTime from "../booking/DistanceTime";
 const MAPBOX_DRIVING_ENDPOINT =
   "https://api.mapbox.com/directions/v5/mapbox/driving/";
 const session_token = "5ccce4a4-ab0a-4a7c-943d-580e55542363";
@@ -21,7 +21,7 @@ function MapboxMap() {
     DestinationCordiContext
   );
 
-  const {directionData, setDirectionData} = useContext(DirectionDataContext);
+  const { directionData, setDirectionData } = useContext(DirectionDataContext);
 
   //Use to Fly to Source Marker Location
 
@@ -100,10 +100,12 @@ function MapboxMap() {
           </Map>
         ) : null}
       </div>
-      <div className="absolute bottom-[40px]
-      z-20 right-[20px]">
-     <DistanceTime />
-     </div>
+      <div
+        className="absolute bottom-[40px]
+      z-20 right-[20px]"
+      >
+        <DistanceTime />
+      </div>
     </div>
   );
 }
